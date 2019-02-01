@@ -27,5 +27,24 @@ public class LinkedList {
 		head = newNode;
 		
 	}
-
+	
+	public int getFirst() {
+		//if(head == null) 
+			//throw exception
+		return head.data;
+	}
+	
+	public int getLast() {
+		if(head == null) 
+			throw new IllegalStateException("Empty List!!!");
+		
+		Node current = head;
+		
+		while(current != null) {
+			current = current.next;
+		}
+		
+		return current.data;
+	}
+			
 }
