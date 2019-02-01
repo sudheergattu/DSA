@@ -3,6 +3,8 @@ package datastructures.linkedlist;
 public class LinkedList {
 	
 	private Node head;
+	//One way to implement size, incremtent size when element is added to list
+	//private int size;
 	
 	private static class Node{
 		int data;
@@ -25,7 +27,7 @@ public class LinkedList {
 		newNode.next = head;
 		//point head to new node
 		head = newNode;
-		
+		//size++;
 	}
 	
 	public int getFirst() {
@@ -61,6 +63,24 @@ public class LinkedList {
 		}
 		//we are at tail, add the new node to current tail.
 		current.next = newNode;
+		//size++;
+	}
+	
+	//Second way to determine - Brute force approach O(n)
+	public int size() {
+		int size = 0;
+		if(head != null) {
+			size++;
+			Node current = head;
+			while(current.next != null) {
+				size++;
+				current = current.next;
+			}
+		}
+		return size;
 	}
 			
+	public void clear() {
+		head = null;
+	}
 }
