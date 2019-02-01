@@ -40,11 +40,27 @@ public class LinkedList {
 		
 		Node current = head;
 		
-		while(current != null) {
+		while(current.next != null) {
 			current = current.next;
 		}
-		
+		//at the tail
 		return current.data;
+	}
+	
+	//adding another node to the tail
+	public void addBack(int data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+			head = newNode;
+			return;
+		}
+		
+		Node current = head;
+		while(current.next != null) {
+			current = current.next;
+		}
+		//we are at tail, add the new node to current tail.
+		current.next = newNode;
 	}
 			
 }
