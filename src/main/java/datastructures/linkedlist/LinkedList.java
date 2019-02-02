@@ -1,5 +1,7 @@
 package datastructures.linkedlist;
 
+import sun.util.resources.cldr.en.CurrencyNames_en_MT;
+
 public class LinkedList {
 	
 	private Node head;
@@ -82,5 +84,30 @@ public class LinkedList {
 			
 	public void clear() {
 		head = null;
+	}
+	
+	//Deleting a node from a list
+	public void deleteValue(int data) {
+		if(head != null) {
+			//if head is being deleted, then make next element of head as new head
+			if(head.data == data) {
+				head = head.next;
+				return;
+			}
+			//Loop through the list
+			Node current = head;
+			while(current.next != null) {
+				//check if next elements data is the one that needs to be deleted.
+				//then point current next to next of current next which essentially deletes 
+				//the node from list
+				if(current.next.data == data) {
+					current.next = current.next.next;
+					return;
+				}
+				current = current.next;
+			}
+			
+		}
+		
 	}
 }
