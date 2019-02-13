@@ -3,6 +3,8 @@ package datastructures.linkedlist;
 import sun.util.resources.cldr.en.CurrencyNames_en_MT;
 
 public class LinkedList {
+	//No random access
+	//No fixed capacity
 	
 	private Node head;
 	//One way to implement size, incremtent size when element is added to list
@@ -16,7 +18,7 @@ public class LinkedList {
 		}
 		
 	}
-	
+	//repeatedly update head-O(1) killer feature
 	public void addFront(int data) {
 		Node newNode = new Node(data);
 		
@@ -51,7 +53,7 @@ public class LinkedList {
 		return current.data;
 	}
 	
-	//adding another node to the tail
+	//adding another node to the tail - O(n)
 	public void addBack(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
