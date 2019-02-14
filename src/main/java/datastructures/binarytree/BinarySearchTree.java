@@ -1,6 +1,7 @@
 package datastructures.binarytree;
 
 //All keys must be unique(no duplicates)
+//Left<root<right
 public class BinarySearchTree {
 
 	private Node root;
