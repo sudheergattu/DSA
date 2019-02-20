@@ -77,4 +77,49 @@ public class BinarySearchTree {
 		}
 		
 	}
+	
+	public void delete(int key) {
+		root = delete(root, key);
+	}
+
+	private Node delete(Node node, int key) {
+		if(node == null) {
+			return null;
+		}
+		//Found element to be deleted
+		if(key == node.key) {
+			//Doesn't have children, directly made the node as null
+			if(node.left == null && node.right == null) {
+				node = null;
+			}
+			//If 
+			else if(node.left == null && node.right != null) {
+				node = node.right;
+			}
+			else if(node.left != null && node.right == null) {
+				node = node.left;
+			}
+			else if(node.left != null && node.right != null) {
+				Node minNode = min(node.right);
+				node.key = minNode.key;
+				node.value = minNode.value;
+				
+				node = delete(minNode.right,key);
+			}
+			
+		}
+		else if(key < node.key) {
+			//GO look for in left sub tree recursively
+			node = delete(node.left, key);
+		}
+		else if(key > node.key) {
+			//GO look for in right sub tree recursively
+			node = delete(node.right, key);
+		}
+		return node;
+	}
+
+	private Node findMinRight(Node node) {
+		return node.left == null?node:findMinRight(node.left);
+	}
 }
