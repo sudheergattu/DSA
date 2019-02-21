@@ -122,4 +122,49 @@ public class BinarySearchTree {
 	private Node findMinRight(Node node) {
 		return node.left == null?node:findMinRight(node.left);
 	}
+	
+/*	//Below are three Depth First traversal implementation
+ * Remember left always comes before right
+ * and Root corresponds to name of traversal as In order - Root in between
+ * Pre - pre left , Post order post left and right
+	1. In Order Traversal - left node, root, right node
+	2. Pre Order Traversal - Root, Left Node, Right Node
+	3. Post Order Traversal - Left Node, Right Node, Root*/
+	
+	
+	public void printInOrderTraversal() {
+		printInOrderTraversal(root);
+	}
+
+	private void printInOrderTraversal(Node node) {
+		if(node != null) {
+			printInOrderTraversal(node.left);
+			System.out.println(node.key);
+			printInOrderTraversal(node.right);
+		}
+	}
+	
+	public void printPreOrderTraversal() {
+		printPreOrderTraversal(root);
+	}
+
+	private void printPreOrderTraversal(Node node) {
+		if(node != null) {
+			System.out.println(node.key);
+			printInOrderTraversal(node.left);
+			printInOrderTraversal(node.right);
+		}
+	}
+	
+	public void printPostOrderTraversal() {
+		printPostOrderTraversal(root);
+	}
+
+	private void printPostOrderTraversal(Node node) {
+		if(node != null) {
+			printInOrderTraversal(node.left);
+			printInOrderTraversal(node.right);
+			System.out.println(node.key);
+		}
+	}
 }
