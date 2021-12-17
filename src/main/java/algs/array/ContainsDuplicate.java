@@ -1,4 +1,4 @@
-package algs;
+package algs.array;
 
 import java.util.HashSet;
 import java.util.Set;
