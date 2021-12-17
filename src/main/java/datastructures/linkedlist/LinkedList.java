@@ -1,6 +1,5 @@
 package datastructures.linkedlist;
 
-import sun.util.resources.cldr.en.CurrencyNames_en_MT;
 
 public class LinkedList {
 	//No random access
